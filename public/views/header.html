@@ -1,0 +1,46 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">No Waste</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul ng-if="profileInfo().token" class="nav navbar-nav navbar-right">
+        <li><a href="#">{{profileInfo().username}}</a></li>
+        <li>
+          <a href ng-click="logout()">
+            <span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+           </a>
+         </li>
+      </ul>
+      
+      <form ng-if="!profileInfo().token" ng-submit="login(user)" class="navbar-form navbar-right" name="loginForm" novalidate>
+        <div ng-class=
+         "{'has-success': loginForm.username.$valid, 'has-error': loginForm.username.$error.required && !loginForm.username.$pristine}"
+          class="form-group has-feedback">
+          <label for="usename">User name</label>
+          <input type="text" ng-model="user.username" name="username" class="form-control" placeholder="User name" required> 
+        </div>
+        <div
+        ng-class=
+         "{'has-success': loginForm.password.$valid, 'has-error': loginForm.password.$error.required && !loginForm.password.$pristine}" 
+        class="form-group" style="margin-left:12px">
+          <label for="password">Password</label>
+          <input type="password" ng-model="user.password" name="password" class="form-control" placeholder="Password" required>
+        </div>
+        <span style="padding-left:12px"></span>
+        <button type="submit" ng-disabled="!loginForm.$valid" class="btn btn-default">Log in</button>
+      </form>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+

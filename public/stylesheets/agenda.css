@@ -1,0 +1,119 @@
+.frame{
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background-image: url("../images/tileable_wood_texture.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.frame {
+    
+}
+
+.frame .header .cell{
+ font-style: italic;
+ text-decoration: underline;
+ font-size: 1.2em;
+ font-weight: bold;
+}
+
+.frame .content{
+    
+}
+
+.frame .item{  
+    margin: 0 auto;
+    margin-top: 15px;
+    width: 800px;
+    height: 40px;
+    /*border: 1px solid black;*/
+    box-shadow: 10px 10px 5px #888888;
+    background-image: url("../images/lined_paper.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-attachment: fixed;
+    
+}
+
+.frame .cell{  
+   height: 100%;
+   line-height: 40px;
+   display: inline-block;
+   color: rgb(12, 20, 173);
+   font-weight: bold;
+}
+
+.frame .date{ 
+    width: 20%; 
+}
+
+.frame .description{ 
+    width: 40%;
+    text-align: center;   
+}
+
+.frame .option{ 
+    width: 20%;   
+}
+
+.frame .value{ 
+    width: 15%;
+    text-align: right;
+    
+}
+
+/***MENU***/
+.menu{
+    color: snow;
+}
+
+.menu .menu-header {
+    padding-bottom: 10px;
+}
+
+.menu .menu-header .menu-header-icon{
+    display: inline-block;
+    height: 35px;
+    width: 80px;
+    padding: 5px;
+    text-align: center;
+}
+
+.menu .menu-header .menu-header-icon:hover{
+    color: black;
+    background-color: snow;
+}
+
+.selected{
+    color: black;
+    background-color: snow;
+}
+
+
+/***SCROLLBAR***/
+/* Let's get this party started */
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgb(220, 220, 188);
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgb(193, 193, 138); 
+}

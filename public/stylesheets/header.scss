@@ -1,0 +1,48 @@
+
+/*****modal*********sass input.scss output.css**/
+.modal {
+  background-color: white;
+  border-radius: 10px;
+  display: none;
+ /* max-height: calc(100% - 100px);
+  max-width: calc(40% - 130px);*/
+  height: 420px;
+  width: 420px;
+  position: fixed;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+  transform: translate(-50%, -50%);
+  z-index: 1010;
+   display: block;
+   margin: -10px;
+    
+    .inner-modal{
+        margin: 0 auto;
+        margin-top: 15px;
+        background: black;
+        height: 390px;
+        width:  390px;
+    }
+    
+    .header{
+       height: 60px;
+       display: inline-block;
+       text-align: center;
+        h4{
+            font: bold; 
+            text-align: center;
+        }
+        span{
+            /*float: right;*/
+            text-align: right;
+        }
+    }
+    
+    body{
+        /*clear: right;*/
+        text-align: center;
+        padding-top: 20px;
+    }
+}

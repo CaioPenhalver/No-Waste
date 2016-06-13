@@ -1,0 +1,132 @@
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2 col-xs-12 ">
+                <div class="menu">
+                    <div class="menu-header">
+                        <div class="menu-header-icon" role="button" ng-click="changeTab(1)" ng-class="{selected : tab === 1}">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"> Search</span>
+                        </div>
+                        <div class="menu-header-icon" role="button" ng-click="changeTab(2)" ng-class="{selected : tab === 2}">
+                            <span class="glyphicon glyphicon-paperclip" aria-hidden="true"> Add</span>
+                        </div>
+                    </div>
+                    
+                    <div id="add-new-item" ng-if="tab === 1">
+                        <p> Search by:</p>
+                        <div class="form-group">
+                            <label for="description">Date</label>
+                            <input type="date" ng-model="filter.date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" ng-model="filter.description" class="form-control" placeholder="Description"> 
+                        </div>
+                        <div class="form-group">
+                            <label for="option">Option</label>
+                            <select class="form-control" ng-model="filter.type" id="option">
+                                <option value="">All</option>
+                                <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Monthly">Monthly</option>
+                                <option value="Yearly">Yearly</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="value">Value</label>
+                            <div class="input-group">
+                                <div class="input-group-addon">$</div>
+                                <input type="text" ng-model="filter.value" ng-pattern="/^\d+?.\d{0,2}$/" class="form-control" id="value" name="value" placeholder="Value">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div id="add-new-item" ng-if="tab === 2">
+                        <form name="addNewItem" ng-submit="setItem(agendaItem)">
+                            <div class="form-group">
+                                <label for="date">Date:</label>
+                                <input type="date" ng-model="agendaItem.date" class="form-control" id="date" placeholder="date" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <input type="text" ng-model="agendaItem.description" ng-pattern="/^[a-zA-Z]{1,20}\s*$/" 
+                                class="form-control" id="description" name="description" placeholder="Description" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="option">Option</label>
+                                <select class="form-control" ng-model="agendaItem.type" id="option" required>
+                                    <option value="Daily">Daily</option>
+                                    <option value="Weekly">Weekly</option>
+                                    <option value="Monthly">Monthly</option>
+                                    <option value="Yearly">Yearly</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="value">Value</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">$</div>
+                                    <input type="text" ng-model="agendaItem.value" ng-pattern="/^\d+?.\d{0,2}$/" class="form-control" id="value" name="value" placeholder="Value" required>
+                                </div>
+                            </div>
+                            <button type="submit" ng-disabled="!addNewItem.$valid" class="btn btn-default">Add</button>
+                        </form>
+                        <button type="button" ng-click="saveTimeline()" class="btn btn-primary" style="width:100%; margin-top:30px">
+                            Save changes
+                       </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-8 col-xs-12 ">
+                    <div class="frame">
+                        
+                        <div class="header">
+                            <div class="item">
+                            
+                                <div class="cell date">
+                                    Date
+                                </div>
+                                <div class="cell description">
+                                    Description
+                                </div>
+                                <div class="cell option">
+                                    Type
+                                </div>
+                                <div class="cell value">
+                                     Value
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="content" 
+                        ng-repeat="item in agenda.getAgenda() | 
+                        dateFilter:filter.date |
+                        descFilter:filter.description |
+                        typeFilter:filter.type |
+                        valueFilter:filter.value
+                        track by $index">
+                            <div class="item">
+                                <div class="cell date"> 
+                                    {{item.date | date: "yyyy-MM-dd"}}
+                                </div>
+                                <div class="cell description">
+                                    {{item.description}}
+                                </div>
+                                <div class="cell option">
+                                    {{item.type}}
+                                </div>
+                                <div class="cell value">
+                                    <i class="fa fa-usd" aria-hidden="true"></i> {{item.value}}
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+              </div>
+         </div>
+    </div>
+</section>
+
+
+
+

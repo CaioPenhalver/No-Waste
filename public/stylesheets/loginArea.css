@@ -1,0 +1,84 @@
+/*button*/
+.my-button.signup span {
+    font-size: 1.5em;
+}
+
+.my-button.facebook span p {
+    display: inline-block;
+    font-size: 1.1em;
+     vertical-align: middle;
+}
+
+.my-button {
+    border: none;
+    color: white;
+    width: 220px;
+    height: 60px;
+    text-align: center;
+   
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.facebook{
+   background-color: #3B5998;
+}
+
+.signup {
+    background-color: #4CAF50;
+}
+
+.facebook:hover{
+   background-color: #27447f;
+   color: aliceblue;
+   text-decoration: none;
+}
+
+.signup:hover {
+    background-color: #399b3c;
+}
+
+.button-frame{
+    margin: 0 auto;
+    width: 220px;
+    height: 60px;
+}
+
+.go-back{
+    width: 120px;
+    height: 35px;
+    background-color: rgba(147, 59, 62, 0.8);
+    font-size: 1em;
+    font-weight: bold;
+    border-radius: 20px;
+}
+
+.go-back:hover{
+    background-color: rgba(190, 59, 62, 1);
+}
+
+.button-frame-goback{
+    margin-bottom: 15px;
+}
+/**********************/
+
+.or{
+    font-size: 2em;
+    font-weight: bold;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.title{
+    text-align: center;
+    font-weight: bold;
+}
+
+/***********************/
+
+.text{
+    font-size: 1.4em;
+    font-weight: bold;
+}

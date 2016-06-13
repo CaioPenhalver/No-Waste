@@ -1,0 +1,121 @@
+<section>
+    <div class="container">
+        <div class="row">
+            
+            <div class="col-md-6">
+                <h1 class="title">No Waste</h1>
+                <div style="height:45px;"></div>
+                <p class="text">
+                    This is a Capstone Project that was developed in 
+                    accordance of the course "Full Stack Web Development" 
+                    from the Hong Kong University of Science and Technology that is offered by Coursera.com.
+                </p>
+                <p style="font-style: italic; font-size:1.1em;">Developed by:<a href="http://caiopenhalver.com/" style=" color:#8ea8db;" target="_blank"> Caio Penhalver</a> 
+                </p>
+            </div>
+            
+            <div class="col-md-4" >
+                <h1 class="title">Sign Up</h1>
+           
+                <!--******Buttons*********-->
+                <div ng-if="tab === 1">
+                    <div style="height:45px;"></div>
+                    <div class="button-frame">
+                       <a href="http://nowaste.mybluemix.net/user/facebook" target="_self" class="my-button facebook" id="facebook-button" >
+                            <i class="fa fa-facebook-official fa-2x" aria-hidden="true" style="margin-top:10px"></i>
+                            <span><p>Log in with Facebook</p></span>
+                       </a>
+                    </div>
+                    <div class="or">or</div>
+                    <div class="button-frame">
+                        <button type="button"  ng-click="changeTab(2)" class="my-button signup" id="signup-button">
+                            <i class="fa fa-sign-in fa-2x" aria-hidden="true"></i>
+                            <span>Sign up</span>
+                        </button>
+                    </div>
+                </div>
+                <!--******Sign up form*********-->
+                <div ng-if="tab === 2">
+                    <div class="button-frame-goback">
+                        <button type="button"  ng-click="changeTab(1)" class="my-button go-back" id="signup-button">
+                            <i class="fa fa-reply" aria-hidden="true"></i>
+                            <span>Go back</span>
+                        </button>
+                    </div>
+                    <div ng-if="registrationMsg().success" class="alert alert-success" role="alert">
+                        Your profile has been created!
+                    </div>
+                    <div ng-if="registrationMsg().error" class="alert alert-danger" role="alert">
+                        Sorry, there is a user with this username. Choose another one!
+                     </div>
+                     
+                        <form id="signUpForm" name="signUpForm" ng-submit="register(newUser)" ovalidate>
+                   
+                            <div ng-class=
+                            "{'has-success': signUpForm.userName.$valid, 'has-error': signUpForm.userName.$error.required && !signUpForm.userName.$pristine}" 
+                            class="form-group has-feedback">
+                                <label for="userName">User name</label>
+                                <input type="text" ng-model="newUser.username" class="form-control" 
+                                id="userName" name="userName" placeholder="User name" required>
+                                <span ng-if="signUpForm.userName.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span ng-if="signUpForm.userName.$error.required && !signUpForm.userName.$pristine" 
+                                class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                            
+                            <div ng-class=
+                            "{'has-success': signUpForm.firstName.$valid, 'has-error': signUpForm.firstName.$error.required && !signUpForm.firstName.$pristine}"
+                            class="form-group has-feedback">
+                                <label for="firstName">First name</label>
+                                <input type="text" ng-model="newUser.firstname" class="form-control" 
+                                id="firstName" name="firstName" placeholder="First name" required>
+                                <span ng-if="signUpForm.firstName.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span ng-if="signUpForm.firstName.$error.required && !signUpForm.firstName.$pristine" 
+                                class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span> 
+                            </div>
+                            
+                            <div ng-class=
+                            "{'has-success': signUpForm.lastName.$valid, 'has-error': signUpForm.lastName.$error.required && !signUpForm.lastName.$pristine}"
+                            class="form-group has-feedback">
+                                <label for="lastName">Last name</label>
+                                <input type="text" ng-model="newUser.lastname" class="form-control" 
+                                id="lastName" name="lastName" placeholder="Last name" required>
+                                <span ng-if="signUpForm.lastName.$valid" class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span ng-if="signUpForm.lastName.$error.required && !signUpForm.lastName.$pristine" 
+                                class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                            
+                            <div ng-class=
+                            "{'has-success': signUpForm.password.$valid, 'has-error': (signUpForm.password.$error.required && !signUpForm.password.$pristine) || (passwordConfirmation.password !== newUser.password)}"
+                            class="form-group has-feedback">
+                                <label for="password">Password</label>
+                                <input type="password" ng-model="newUser.password" class="form-control" 
+                                id="password" name="password" placeholder="Password" required>
+                                <span ng-if="signUpForm.password.$valid && (passwordConfirmation.password === newUser.password)" 
+                                class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span ng-if="(signUpForm.password.$error.required && !signUpForm.password.$pristine) || (passwordConfirmation.password !== newUser.password)" 
+                                class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                            </div>
+                            
+                            <div ng-class=
+                            "{'has-success': signUpForm.passwordConfirmation.$valid, 
+                            'has-error': (signUpForm.passwordConfirmation.$error.required && !signUpForm.passwordConfirmation.$pristine) || (passwordConfirmation.password !== newUser.password)}"
+                            class="form-group has-feedback">
+                                <label for="passwordConfirmation">Confirm your password</label>
+                                <input type="password" ng-model="passwordConfirmation.password" 
+                                class="form-control" id="passwordConfirmation" name="passwordConfirmation" placeholder="Password" required>
+                                <span ng-if="signUpForm.passwordConfirmation.$valid && (passwordConfirmation.password === newUser.password)" 
+                                class="glyphicon glyphicon-ok form-control-feedback" aria-hidden="true"></span>
+                                <span ng-if="(signUpForm.passwordConfirmation.$error.required && !signUpForm.passwordConfirmation.$pristine) || (passwordConfirmation.password !== newUser.password)" 
+                                class="glyphicon glyphicon-remove form-control-feedback" aria-hidden="true"></span>
+                                <div ng-if="!(passwordConfirmation.password === newUser.password)" class="alert alert-danger" role="alert">
+                                    The passwords do not match!
+                                </div>
+                            </div>
+                                                         
+                            <button type="submit" ng-click="signUpForm.$setPristine()" ng-disabled="!signUpForm.$valid || (signUpForm.$submitted && signUpForm.$dirty)" class="btn btn-default">Sing Up</button>
+                        </form> 
+                </div>   
+            </div><!--<div class="col-md-4" >-->
+        </div>
+    </div>
+</section>
